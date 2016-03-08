@@ -1,0 +1,31 @@
+body {
+  background-image: url(teacups.jpg);
+  background-size: cover;
+  background-position: top right;
+  background-position-x: 100%
+  background-position-y: 0%;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  margin-left: 50px;
+  color: #ff33cc;
+  font-style: italic;
+  font-weight: bold;
+}
+
+label {
+  color: #ff33cc;
+  font-weight: bold;
+}
+
+#submit {
+  margin-top: 15px;
+  border: 2px solid #ff33cc;
+  /*color: #ff33cc;*/
+}
+#modalButton {
+  margin-top: 15px;
+  border: 2px solid #ff33cc;
+  /*color: #ff33cc;*/
+}
