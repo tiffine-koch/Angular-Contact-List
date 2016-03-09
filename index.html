@@ -58,23 +58,23 @@
       <form class="form-inline">
         <div class="form-group">
           <label for="inputTask">New Contact</label>
-          <input type="name" class="form-control" placeholder="Enter Name" ng-model="newContact.name">
+          <input type="name" class="form-control" placeholder="Enter Name" ng-model="contact.name">
         </div>
         <div class="form-group">
-          <label for="inputDate">@</label>
-          <input type="email" class="form-control" placeholder="Enter Email" ng-model="newContact.email">
+          <label for="inputDate">Email</label>
+          <input type="email" class="form-control" placeholder="Enter Email" ng-model="contact.email">
         </div>
         <div class="form-group">
           <label class="locInput">Location</label>
-          <input type="text" class="form-control" placeholder="Enter Location" ng-model="newContact.location">
+          <input type="text" class="form-control" placeholder="Enter Location" ng-model="contact.location">
         </div>
         <div class="form-group">
           <label class="phoneInput">#</label>
-          <input type="tel" class="form-control" placeholder="xxx xxx xxxx" ng-model="newContact.phone">
+          <input type="tel" class="form-control" placeholder="xxx xxx xxxx" ng-model="contact.phone">
         </div>
         <div class="form-group">
           <label class="spirit">Spirit</label>
-          <input type="text" class="form-control" placeholder="Spirit of Choice" ng-model="newContact.spirit">
+          <input type="text" class="form-control" placeholder="Spirit of Choice" ng-model="contact.spirit">
         </div>
         <button id="submit" ng-click='addContact()' class="btn btn-info">Add New Contact</button>
        </form>
@@ -100,12 +100,12 @@
          <td>{{$index + 1}}</td>
          <td ng-repeat='value in contact'>{{value}}</td>
          <td>
-           <button type="button" ng-click="removeContact(contact)" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"data-toggle="modal" data-target="#myModal">
+           <button type="button" ng-click="deleteContact(contact)" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal"data-toggle="modal" data-target="#myModal">
              <span class="glyphicon glyphicon-pencil"></span>
            </button>
          </td>
          <td>
-           <button ng-click="removeContact(contact)" type="button" class="btn btn-primary btn-sm">
+           <button ng-click="deleteContact(contact)" type="button" class="btn btn-primary btn-sm">
              <span class="glyphicon glyphicon-trash"></span>
            </button>
          </td>
