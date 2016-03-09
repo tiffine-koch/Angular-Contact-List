@@ -45,7 +45,7 @@ app.controller('mainCtrl', function($scope, $http) {
   }
 
 
-  $scope.removeContact = function(contact) {
+  $scope.deleteContact = function(contact) {
     index = $scope.contacts.indexOf(contact);
     $http({
       method: 'DELETE',
@@ -60,18 +60,18 @@ app.controller('mainCtrl', function($scope, $http) {
 
   $scope.editContact = function(newContact) {
     index = $scope.contacts.indexOf(newContact);
-    $scope.contacts.push($scope.newContact);
-    $scope.newContact = {};
+    $scope.contacts.push($scope.contact);
     $http({
       method: 'PUT',
       url: `/contacts/${index}`,
       data: index
     })
     .then(function(data){
-      updateContacts();
+      addContact();
       console.log('data', data);
     }, function(err){
       console.error(err);
     })
   };
+    $scope.contact = {};
 });
