@@ -1,7 +1,7 @@
 'use strict';
 
 const PORT = 8888;
-const contactFile = 'contacts.json'
+const contactJSON = 'contacts.json'
 
 var express = require('express');
 var morgan = require('morgan');
@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/contacts', function (req, res) {
-    fs.readFile(contactFile, function(err, data) {
+    fs.readFile(contactJSON, function(err, data) {
       if(!data) data = [];
       var contacts = JSON.parse(data);
       res.send(contacts);
@@ -33,10 +33,10 @@ app.get('/contacts', function (req, res) {
 app.post('/contacts', function (req, res) {
   var newContact = req.body;
 
-  fs.readFile(contactFile, function(err, data){
+  fs.readFile(contactJSON, function(err, data){
     var contacts = JSON.parse(data);
     contacts.push(newContact);
-    fs.writeFile(contactFile, JSON.stringify(contacts), function(err, data){
+    fs.writeFile(contactJSON, JSON.stringify(contacts), function(err, data){
       res.send();
     })
   })
@@ -45,10 +45,10 @@ app.post('/contacts', function (req, res) {
 app.delete('/contacts/:index', function (req, res) {
   var index = req.params.index;
 
-  fs.readFile(contactFile, function(err, data) {
+  fs.readFile(contactJSON, function(err, data) {
     var contacts = JSON.parse(data);
     contacts.splice(index, 1);
-    fs.writeFile(contactFile, JSON.stringify(contacts), function(err, data){
+    fs.writeFile(contactJSON, JSON.stringify(contacts), function(err, data){
       res.send();
     })
   })
@@ -58,11 +58,11 @@ app.put('/contacts/:index', function (req, res) {
   var index = req.params.index;
   var editContact = req.body;
 
-  fs.readFile(contactFile, function(err, data) {
+  fs.readFile(contactJSON, function(err, data) {
     var contacts = JSON.parse(data);
     contacts.splice(index, 1);
     contacts.splice(index, 0, editContact);
-    fs.writeFile(contactFile, JSON.stringify(contacts), function(err, data){
+    fs.writeFile(contactJSON, JSON.stringify(contacts), function(err, data){
       res.send();
     })
   })
