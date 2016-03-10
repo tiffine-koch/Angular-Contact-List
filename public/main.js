@@ -26,6 +26,7 @@ app.controller('mainCtrl', function($scope, $http) {
   $scope.addContact =function() {
     console.log('click');
     var newContact = $scope.contact;
+    //if statement to check for empty fields
       $http({
         method: 'POST',
         url: '/contacts',
@@ -46,8 +47,7 @@ app.controller('mainCtrl', function($scope, $http) {
     var index = $scope.contacts.indexOf(contact);
     $http({
       method: 'DELETE',
-      // url: "/contacts/" + index,
-      url: `/contacts/${index}`
+      url: "/contacts/" + index,
     })
     .then(function(data) {
       $scope.contacts.splice(index, 1);
@@ -61,8 +61,7 @@ app.controller('mainCtrl', function($scope, $http) {
     $scope.contacts.push($scope.contact);
     $http({
       method: 'PUT',
-      // url: "/contacts/" + index,
-      url: `/contacts/${index}`,
+      url: "/contacts/" + index,
       data: index
     })
     .then(function(data){
